@@ -285,3 +285,11 @@ footer {
   overflow-wrap: break-word;
   margin: 15px 0;
 }
+
+.drop-date {
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
