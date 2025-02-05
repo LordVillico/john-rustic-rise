@@ -21,28 +21,28 @@
   
   <main>
     <section class="shop">
-      <h2>Our Breads</h2>
+      <h2>Current Drops</h2>
       <div class="product-list">
         <!-- Product 1 -->
         <div class="product">
-          <h3>Rustic Sourdough Loaf</h3>
-          <p>Our signature sourdough bread, baked with traditional techniques and a touch of love.</p>
+          <h3>Classic Sourdough Rustic Loaf</h3>
+          <p>A timeless sourdough with a crisp crust and a soft, tangy interior.</p>
           <p class="price">$10.00</p>
-          <button onclick="addToCart(1, 'Rustic Sourdough Loaf', 10.00)">Add to Cart</button>
+          <button onclick="addToCart(1, 'Classic Sourdough Rustic Loaf', 10.00)">Add to Cart</button>
         </div>
         <!-- Product 2 -->
         <div class="product">
-          <h3>Mini Sourdough Rolls</h3>
-          <p>Perfect for sandwiches or as a side, these rolls pack a punch of flavor.</p>
-          <p class="price">$5.00</p>
-          <button onclick="addToCart(2, 'Mini Sourdough Rolls', 5.00)">Add to Cart</button>
+          <h3>Pizza Sourdough Rustic Loaf</h3>
+          <p>Infused with classic pizza flavors—perfect for toasting or dipping.</p>
+          <p class="price">$12.00</p>
+          <button onclick="addToCart(2, 'Pizza Sourdough Rustic Loaf', 12.00)">Add to Cart</button>
         </div>
         <!-- Product 3 -->
         <div class="product">
-          <h3>Gluten-Free Sourdough</h3>
-          <p>A delightful twist on the classic recipe for those with dietary needs.</p>
+          <h3>Rustic Cinnamon Rolls</h3>
+          <p>Soft sourdough cinnamon rolls with a rich, gooey cinnamon filling.</p>
           <p class="price">$12.00</p>
-          <button onclick="addToCart(3, 'Gluten-Free Sourdough', 12.00)">Add to Cart</button>
+          <button onclick="addToCart(3, 'Rustic Cinnamon Rolls', 12.00)">Add to Cart</button>
         </div>
       </div>
     </section>
@@ -52,55 +52,49 @@
       <div id="cart">
         <p>Your cart is empty.</p>
       </div>
+      <!-- Refresh Notice -->
+      <p class="cart-refresh-note"><strong>Note:</strong> Refresh the page to clear your cart and start over.</p>
+      
       <!-- Place Order Button -->
       <div class="checkout-button" style="text-align: center; margin-top: 20px;">
         <button id="place-order" class="btn">Place Order</button>
       </div>
     </section>
 
-	<!-- Checkout Modal -->
-	<div id="checkout-modal" class="modal">
-	  <div class="modal-content">
-		<span class="close">&times;</span>
-		<h2>Place Your Order</h2>
-		<form id="checkout-form">
-		  <div>
-			<label for="first-name">First Name:</label>
-			<input type="text" id="first-name" name="firstName" required>
-		  </div>
-		  <div>
-			<label for="last-name">Last Name:</label>
-			<input type="text" id="last-name" name="lastName" required>
-		  </div>
-		  <div>
-			<label for="phone">Phone Number:</label>
-			<input type="tel" id="phone" name="phone">
-		  </div>
-		  <div>
-			<label for="email">Email:</label>
-			<input type="email" id="email" name="email">
-		  </div>
-		  <div>
-			<p><em>Note: Please provide at least a phone number or an email.</em></p>
-		  </div>
-		  <!-- This div will be updated with the pickup date -->
-		  <div id="pickup-info"></div>
-		  <div>
-			<p>Please select your payment method:</p>
-			<label>
-			  <input type="radio" name="payment" value="Cash" required> Cash
-			</label><br>
-			<label>
-			  <input type="radio" name="payment" value="Venmo" required> Venmo
-			</label>
-		  </div>
-		  <div>
-			<button type="submit" class="btn">Submit Order</button>
-		  </div>
-		</form>
-	  </div>
-	</div>
+   <!-- Checkout Modal -->
+  <div id="checkout-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Place Your Order</h2>
+      <form id="checkout-form">
+        <!-- Customer Information -->
+        <label for="first-name">First Name:</label>
+        <input type="text" id="first-name" name="firstName" required>
 
+        <label for="last-name">Last Name:</label>
+        <input type="text" id="last-name" name="lastName" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+
+        <p><em>Note: Please provide at least a phone number or an email.</em></p>
+
+        <!-- Payment Method -->
+        <p>Please select your payment method:</p>
+        <label>
+          <input type="radio" name="payment" value="Cash" required> Cash
+        </label><br>
+        <label>
+          <input type="radio" name="payment" value="Venmo" required> Venmo
+        </label><br><br>
+        
+        <button type="submit" class="btn">Submit Order</button>
+      </form>
+    </div>
+  </div>
   </main>
   
   <footer>
