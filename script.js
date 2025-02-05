@@ -20,34 +20,48 @@ document.addEventListener("DOMContentLoaded", function() {
   };
 
   // Update the cart display in the DOM
-  function updateCartDisplay() {
-    var cartDiv = document.getElementById("cart");
-    cartDiv.innerHTML = "";
-    if (cart.length === 0) {
-      cartDiv.innerHTML = "<p>Your cart is empty.</p>";
-      return;
-    }
-    var table = document.createElement("table");
-    var headerRow = document.createElement("tr");
-    headerRow.innerHTML = "<th>Product</th><th>Price</th><th>Quantity</th><th>Subtotal</th>";
-    table.appendChild(headerRow);
-    var total = 0;
-    cart.forEach(function(item) {
-      var row = document.createElement("tr");
-      var subtotal = item.price * item.quantity;
-      total += subtotal;
-      row.innerHTML = "<td>" + item.name + "</td>" +
-                      "<td>$" + item.price.toFixed(2) + "</td>" +
-                      "<td>" + item.quantity + "</td>" +
-                      "<td>$" + subtotal.toFixed(2) + "</td>";
-      table.appendChild(row);
-    });
-    var totalRow = document.createElement("tr");
-    totalRow.innerHTML = "<td colspan='3'><strong>Total</strong></td>" +
-                         "<td><strong>$" + total.toFixed(2) + "</strong></td>";
-    table.appendChild(totalRow);
-    cartDiv.appendChild(table);
-  }
+	function updateCartDisplay() {
+	  var cartDiv = document.getElementById("cart");
+	  var refreshNote = document.querySelector(".cart-refresh-note");
+	  cartDiv.innerHTML = "";
+
+	  if (cart.length === 0) {
+		cartDiv.innerHTML = "<p>Your cart is empty.</p>";
+		if (refreshNote) {
+		  refreshNote.style.display = "none"; // Hide the refresh note when the cart is empty
+		}
+		return;
+	  }
+
+	  if (refreshNote) {
+		refreshNote.style.display = "block"; // Show the note when items are added
+	  }
+
+	  var table = document.createElement("table");
+	  var headerRow = document.createElement("tr");
+	  headerRow.innerHTML = "<th>Product</th><th>Price</th><th>Quantity</th><th>Subtotal</th>";
+	  table.appendChild(headerRow);
+
+	  var total = 0;
+	  cart.forEach(function(item) {
+		var row = document.createElement("tr");
+		var subtotal = item.price * item.quantity;
+		total += subtotal;
+		row.innerHTML = "<td>" + item.name + "</td>" +
+						"<td>$" + item.price.toFixed(2) + "</td>" +
+						"<td>" + item.quantity + "</td>" +
+						"<td>$" + subtotal.toFixed(2) + "</td>";
+		table.appendChild(row);
+	  });
+
+	  var totalRow = document.createElement("tr");
+	  totalRow.innerHTML = "<td colspan='3'><strong>Total</strong></td>" +
+						   "<td><strong>$" + total.toFixed(2) + "</strong></td>";
+	  table.appendChild(totalRow);
+
+	  cartDiv.appendChild(table);
+	}
+
 
   // ----------------------------
   // Pickup Date Calculation
